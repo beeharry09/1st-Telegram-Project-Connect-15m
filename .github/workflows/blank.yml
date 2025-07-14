@@ -79,7 +79,7 @@ jobs:
           {
             echo "# 🌌 Level: $next_name"
             echo "# Generated at: $(date -u)"
-            echo "# By: beeharry519@gmail.com"
+            echo "# By: abieharyatmo01@gmail.com"
           } > "$file_name"
 
           echo "LEVEL_NAME=$next_name" >> $GITHUB_ENV
@@ -146,19 +146,22 @@ jobs:
 
           leaderboard=$(jq -r '
             group_by(.user)
-            | map({user: .[0].user, last_level: .[-1].level, score: length})
+            | map({
+                user: .[0].user,
+                score: length
+            })
             | sort_by(-.score, .user)
             | .[:10]
             | to_entries
             | map(
               if .key == 0 then
-                "1. 🟥 \(.value.user) [\(.value.last_level) | Score: \(.value.score)]"
+                "1. 🟥 \(.value.user) [Score: \(.value.score)]"
               elif .key == 1 then
-                "2. 🟧 \(.value.user) [\(.value.last_level) | Score: \(.value.score)]"
+                "2. 🟧 \(.value.user) [Score: \(.value.score)]"
               elif .key == 2 then
-                "3. 🟨 \(.value.user) [\(.value.last_level) | Score: \(.value.score)]"
+                "3. 🟨 \(.value.user) [Score: \(.value.score)]"
               else
-                "\(.key+1). 🟪 \(.value.user) [\(.value.last_level) | Score: \(.value.score)]"
+                "\(.key+1). 🟪 \(.value.user) [Score: \(.value.score)]"
               end
             )
             | join("\n")
@@ -196,7 +199,7 @@ jobs:
             <b>• ⏳ Deployed At :</b> <b>${{ env.FORMATTED_TIME }}</b>
             <b>• 🧾 CI Run # :</b> <b>${{ env.NOTIF_COUNTER }}</b>
             <b>• 🏅 Score :</b> <b>${{ env.SCORE_SELF }}</b>
-            <b>• 🔐 Commit Auth :</b> <b>beeharry519@gmail.com</b>
+            <b>• 🔐 Commit Auth :</b> <b>abieharyatmo01@gmail.com</b>
 
             <b>🏅 Leaderboard (Top 10 Global):</b>
             <pre>${{ env.LEADERBOARD_GLOBAL }}</pre>
@@ -208,8 +211,8 @@ jobs:
 
       - name: 🤖 Configure Git
         run: |
-          git config user.name "beeharry519"
-          git config user.email "beeharry519@gmail.com"
+          git config user.name "abieharyatmo01"
+          git config user.email "abieharyatmo01@gmail.com"
 
       - name: 🚩 Commit & Push Changes (Auto-resolve Conflict)
         run: |

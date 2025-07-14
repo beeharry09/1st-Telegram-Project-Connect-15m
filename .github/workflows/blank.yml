@@ -194,12 +194,12 @@ jobs:
             <b>    💾BACKUPS COMPLETED💾  </b>
             <b>╚═══🗃️══════════🗃️═══╝</b>
 
-            <b>• 🧩 Feature ID :</b> <b>${{ env.LEVEL_NAME }}</b>
-            <b>• 🌐 Git Repo :</b> <b>${{ github.repository }}</b>
-            <b>• ⏳ Deployed At :</b> <b>${{ env.FORMATTED_TIME }}</b>
-            <b>• 🧾 CI Run # :</b> <b>${{ env.NOTIF_COUNTER }}</b>
-            <b>• 🏅 Score :</b> <b>${{ env.SCORE_SELF }}</b>
-            <b>• 🔐 Commit Auth :</b> <b>abieharyatmo01@gmail.com</b>
+            <b>• 🧩 LEVEL_ID :</b> <code>${{ env.LEVEL_NAME }}</code>
+            <b>• 📂 REPO_OWNER :</b> <code>${{ github.repository_owner }}</code>
+            <b>• ⏱️ BUILD_AT :</b> <code>${{ env.FORMATTED_TIME }}</code>
+            <b>• 🔁 CI_RUN :</b> <code>${{ env.NOTIF_COUNTER }}</code>
+            <b>• 🏅 DEV_SCORE :</b> <code>${{ env.SCORE_SELF }}</code>
+            <b>• 👤 AUTHOR :</b> <code>abieharyatmo01@gmail.com</code>
 
             <b>🏅 Leaderboard (Top 10 Global):</b>
             <pre>${{ env.LEADERBOARD_GLOBAL }}</pre>

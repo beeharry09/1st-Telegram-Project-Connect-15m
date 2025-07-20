@@ -2,8 +2,8 @@ name: 🚀 Auto Cultivation Level Generator & Weekly Winner
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
-    - cron: '0 0 * * 1'
+    - cron: '0 0 * * *'     # Setiap hari jam 07:00 WIB (00:00 UTC)
+    - cron: '0 0 * * 1'     # Setiap Senin jam 07:00 WIB (00:00 UTC)
   workflow_dispatch:
 
 jobs:
@@ -375,8 +375,8 @@ jobs:
 
       - name: 🤖 Configure Git
         run: |
-          git config user.name "abieharyatmo01"
-          git config user.email "abieharyatmo01@gmail.com"
+          git config user.name "beeharry519@gmail.com"
+          git config user.email "beeharry519@gmail.com"
 
       - name: 🚩 Commit & Push Changes (Auto-resolve Conflict)
         run: |
